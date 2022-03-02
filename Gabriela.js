@@ -4,7 +4,8 @@
 
 let testWord = "esternocleidomastoideo";
 function wordCutter(word) {
-   // :)
+  let separados=testWord.split('') 
+  console.log(separados)
 }
 wordCutter(testWord);
 
@@ -93,7 +94,7 @@ let testWordToExplore = "amar";
 let wordsToVerify = ["amar", "arma", "rana" , "mara", "rama", "roma", "amor", "ramon", "omar"];
 
 function anagramVerifier(wordToExplore, listOfWords) {
-   // :)
+   
 }
 
 /*Dado un objeto que contiene 2 arreglos, retornar un objeto con 1
@@ -105,8 +106,17 @@ let testObjMultiContainer = {
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
-    // :)
+    let juntos=listA.concat(listB)
+
+    for(let i=0; i<juntos.length;i++){
+        for(let index=0;i<juntos[i].length;i++){
+            if(juntos[i]==="a"||juntos[i]==="e"||juntos[i]==="i"||juntos[i]==="o"||juntos[i]==="u"){
+              juntos.split()
+            }
+    }
+  console.log(juntos)
 }
+vocalsRemoverFromObject()
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));
 
