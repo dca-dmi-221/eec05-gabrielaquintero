@@ -3,11 +3,19 @@
 /*Dada una cadena de texto (string) separe y muestre en consola los caracteres de forma desordenada uno por línea, 1 caracter a la vez.*/
 
 let testWord = "esternocleidomastoideo";
-function wordCutter(word) {
-  let separados=testWord.split('') 
-  console.log(separados)
+function shuffle(a,b) {
+  const random=Math.random()
+  if(random<0.5){
+  return-1}
+  else{
+      return 1
+  }
 }
-wordCutter(testWord);
+function wordCutter(word){
+let split=word.split('').sort(shuffle)
+split.forEach(letter=>console.log(letter))
+}
+wordCutter(testWord)
 
 /*Dado un string buscar en un listado e indicar si se encuentra o no
 ahí contenido, debe soportar mayúsculas y minúsculas sin importar
@@ -25,6 +33,7 @@ let testWordsList = [
     "Chevere",
     "Meneo",
 ];
+
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
@@ -72,8 +81,23 @@ let containerTestObject = {
     list:["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
 }
 function lettersCounter(objectContainer) {
-   // :)
+   let list=objectContainer.list
+   let vowels=0
+   let consonants=0
+   list.forEach(word=>{
+       word.split('').forEach(letter=>{
+           if( letter==="a"||letter==="e"||letter==="i"||letter==="o"||letter==="u") {
+               vowels++
+            }
+           else{
+               consonants++
+           }
+       })
+   })
+   return[vowels,consonants]
 }
+console.log(lettersCounter(containerTestObject))
+
 
 
 /*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/
@@ -106,17 +130,21 @@ let testObjMultiContainer = {
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
-    let juntos=listA.concat(listB)
+    let juntos=objectMultiContainer.listA.concat(objectMultiContainer.listB)
+    const resultado = []
 
     for(let i=0; i<juntos.length;i++){
-        for(let index=0;i<juntos[i].length;i++){
-            if(juntos[i]==="a"||juntos[i]==="e"||juntos[i]==="i"||juntos[i]==="o"||juntos[i]==="u"){
-              juntos.split()
+        const palabraActual = juntos[i].split('');
+        for(let index=0;index<juntos[i].length;index++){
+            if(palabraActual[index]==="a"||palabraActual[index]==="e"||palabraActual[index]==="i"||palabraActual[index]==="o"||palabraActual[index]==="u"){
+              palabraActual.splice(index, 1);
             }
+        }
+        resultado.push(palabraActual.join(''))
     }
-  console.log(juntos)
+    console.log(resultado)
 }
-vocalsRemoverFromObject()
+vocalsRemoverFromObject(testObjMultiContainer)
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));
 
