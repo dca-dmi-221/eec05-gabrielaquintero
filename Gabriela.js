@@ -34,12 +34,28 @@ let testWordsList = [
     "Meneo",
 ];
 
-
 // pruebe para cada palabra A, B y C
-function wordSearcherIgnoreCase(targetWord, wordsList) {
-   // :)
+function wordSearcherIgnoreCase(principalWord, wordsList) {
+    let newWordsList = wordsList.map((element) => element.toLowerCase());
+    let newWord = principalWord.toLowerCase();
+    newWord = normalWord(newWord);
+    newWord = newWordsList.includes(newWord);
+    console.log(principalWord);
+    if (newWord === true) {
+        console.log(principalWord + " si está en la lista");
+    } else {
+        console.log(principalWord + " no está en la lista");
+    }
+    
 }
 
+function normalWord(word) {
+    return word = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
+wordSearcherIgnoreCase(testTargetWordB, testWordsList);
+wordSearcherIgnoreCase(testTargetWordC, testWordsList);
 
 
 /*3.Dado un arreglo de strings, retornar la palabra más larga,
@@ -88,9 +104,18 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-   // :)
+    console.log(word.toLowerCase())
+    let palindromeWord = word.toLowerCase().split("").reverse().join("");
+   if ( palindromeWord === word.toLowerCase() ) {
+       console.log("Si es un palíndromo")
+   }else{
+        console.log("No es un palíndromo")
+   }
 }
-
+palindromeVerifier(onVerificationWordA)
+palindromeVerifier(onVerificationWordB)
+palindromeVerifier(onVerificationWordC)
+palindromeVerifier(onVerificationWordD)
 
 /*5.Dado un objeto que contiene una lista de palabras contar el
 número de letras vocales y consonantes y retornarlo en un arreglo de 2 posiciones.*/
@@ -123,8 +148,8 @@ let wordArrayB = ["te", "ves" ,"igual", "te", "ves", "igual"];
 
 function arrayJoiner(listA, listB) {
 
- let ambos=wordArrayA.concat(wordArrayB)
- console.log(ambos)
+ let together=wordArrayA.concat(wordArrayB)
+ console.log(together)
 }
 arrayJoiner()
 
@@ -189,7 +214,6 @@ debe contar las identificadas y retornar un objeto con ese conteo.*/
 
 let testListA = ["amor", "sabor", "calor","firma", "mara"];
 let testListB = ["roma", "robar", "portar", "arma", "mora"];
-
 function doubleListVerifier(listA, listB) {
     // :)
 }
